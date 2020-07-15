@@ -1,0 +1,418 @@
+{
+    "author_info": {
+        "author_name": "Datadog"
+    },
+    "board_title": "Datadog Cluster Agent - Overview",
+    "description": "",
+    "template_variables": [
+        {
+            "default": "*",
+            "name": "cluster",
+            "prefix": "cluster_name"
+        }
+    ],
+    "widgets": [
+        {
+            "height": 13,
+            "tile_def": {
+                "autoscale": true,
+                "custom_links": [],
+                "precision": 2,
+                "requests": [
+                    {
+                        "aggregator": "avg",
+                        "q": "sum:datadog.cluster_agent.external_metrics{$cluster,is_leader:true}"
+                    }
+                ],
+                "viz": "query_value"
+            },
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "External Metrics",
+            "type": "query_value",
+            "width": 15,
+            "x": 0,
+            "y": 46
+        },
+        {
+            "height": 13,
+            "tile_def": {
+                "autoscale": true,
+                "custom_links": [],
+                "precision": 2,
+                "requests": [
+                    {
+                        "aggregator": "last",
+                        "q": "sum:datadog.cluster_agent.cluster_checks_nodes_reporting{$cluster,is_leader:true}"
+                    }
+                ],
+                "viz": "query_value"
+            },
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "Workers",
+            "type": "query_value",
+            "width": 15,
+            "x": 0,
+            "y": 23
+        },
+        {
+            "height": 13,
+            "tile_def": {
+                "autoscale": true,
+                "custom_links": [],
+                "precision": 2,
+                "requests": [
+                    {
+                        "aggregator": "last",
+                        "q": "sum:datadog.cluster_agent.cluster_checks_configs_dispatched{$cluster,is_leader:true}"
+                    }
+                ],
+                "viz": "query_value"
+            },
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "Cluster Checks",
+            "type": "query_value",
+            "width": 15,
+            "x": 0,
+            "y": 7
+        },
+        {
+            "color": "#4d4d4d",
+            "font_size": "auto",
+            "height": 6,
+            "text": "Cluster Checks",
+            "text_align": "left",
+            "type": "free_text",
+            "width": 24,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "height": 13,
+            "legend": false,
+            "tile_def": {
+                "custom_links": [],
+                "requests": [
+                    {
+                        "metadata": {
+                            "avg:datadog.cluster_agent.cluster_checks_configs_dispatched{$cluster,is_leader:true} by {host}": {
+                                "alias": "dispatched"
+                            }
+                        },
+                        "q": "avg:datadog.cluster_agent.cluster_checks_configs_dispatched{$cluster,is_leader:true} by {host}",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "bars"
+                    },
+                    {
+                        "metadata": {
+                            "avg:datadog.cluster_agent.cluster_checks_configs_dangling{$cluster,is_leader:true} by {host}": {
+                                "alias": "dangling"
+                            }
+                        },
+                        "q": "avg:datadog.cluster_agent.cluster_checks_configs_dangling{$cluster,is_leader:true} by {host}",
+                        "style": {
+                            "palette": "grey",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "bars"
+                    }
+                ],
+                "viz": "timeseries",
+                "yaxis": {
+                    "includeZero": true,
+                    "label": "",
+                    "max": "auto",
+                    "min": "auto",
+                    "scale": "linear"
+                }
+            },
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "Cluster Checks",
+            "type": "timeseries",
+            "width": 47,
+            "x": 16,
+            "y": 7
+        },
+        {
+            "height": 13,
+            "legend": false,
+            "tile_def": {
+                "custom_links": [],
+                "requests": [
+                    {
+                        "q": "avg:datadog.cluster_agent.cluster_checks_nodes_reporting{$cluster,is_leader:true} by {host}",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "line"
+                    }
+                ],
+                "viz": "timeseries",
+                "yaxis": {
+                    "includeZero": true,
+                    "label": "",
+                    "max": "auto",
+                    "min": "auto",
+                    "scale": "linear"
+                }
+            },
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "Workers",
+            "type": "timeseries",
+            "width": 47,
+            "x": 16,
+            "y": 23
+        },
+        {
+            "color": "#4d4d4d",
+            "font_size": "auto",
+            "height": 6,
+            "text": "External Metrics",
+            "text_align": "left",
+            "type": "free_text",
+            "width": 24,
+            "x": 0,
+            "y": 39
+        },
+        {
+            "height": 13,
+            "legend": false,
+            "tile_def": {
+                "requests": [
+                    {
+                        "q": "avg:datadog.cluster_agent.external_metrics_delay_seconds{$cluster,is_leader:true} by {cluster_name}",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "line"
+                    }
+                ],
+                "viz": "timeseries",
+                "yaxis": {
+                    "includeZero": true,
+                    "label": "",
+                    "max": "auto",
+                    "min": "auto",
+                    "scale": "linear"
+                }
+            },
+            "time": {},
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "Metrics Delay",
+            "type": "timeseries",
+            "width": 47,
+            "x": 64,
+            "y": 46
+        },
+        {
+            "height": 13,
+            "legend": false,
+            "tile_def": {
+                "custom_links": [],
+                "requests": [
+                    {
+                        "q": "sum:datadog.cluster_agent.external_metrics{$cluster,is_leader:true} by {valid}",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "bars"
+                    }
+                ],
+                "viz": "timeseries",
+                "yaxis": {
+                    "includeZero": true,
+                    "label": "",
+                    "max": "auto",
+                    "min": "auto",
+                    "scale": "linear"
+                }
+            },
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "External Metrics",
+            "type": "timeseries",
+            "width": 47,
+            "x": 16,
+            "y": 46
+        },
+        {
+            "height": 13,
+            "legend": false,
+            "tile_def": {
+                "custom_links": [],
+                "requests": [
+                    {
+                        "metadata": {
+                            "avg:datadog.cluster_agent.cluster_checks_rebalancing_decisions{$cluster,is_leader:true} by {cluster_name}.as_rate()": {
+                                "alias": "Rebalancing Decision"
+                            }
+                        },
+                        "q": "avg:datadog.cluster_agent.cluster_checks_rebalancing_decisions{$cluster,is_leader:true} by {cluster_name}.as_rate()",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "line"
+                    },
+                    {
+                        "metadata": {
+                            "avg:datadog.cluster_agent.cluster_checks_successful_rebalancing_moves{$cluster,is_leader:true} by {cluster_name}.as_count()": {
+                                "alias": "Rebalancing Moves"
+                            }
+                        },
+                        "q": "avg:datadog.cluster_agent.cluster_checks_successful_rebalancing_moves{$cluster,is_leader:true} by {cluster_name}.as_count()",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "line"
+                    }
+                ],
+                "viz": "timeseries",
+                "yaxis": {
+                    "includeZero": true,
+                    "label": "",
+                    "max": "auto",
+                    "min": "auto",
+                    "scale": "linear"
+                }
+            },
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "Check Rebalancing",
+            "type": "timeseries",
+            "width": 47,
+            "x": 64,
+            "y": 7
+        },
+        {
+            "color": "#4d4d4d",
+            "font_size": "auto",
+            "height": 6,
+            "text": "Admission Controller",
+            "text_align": "left",
+            "type": "free_text",
+            "width": 34,
+            "x": 0,
+            "y": 78
+        },
+        {
+            "height": 13,
+            "legend": false,
+            "tile_def": {
+                "requests": [
+                    {
+                        "metadata": {
+                            "avg:datadog.cluster_agent.admission_webhooks_webhooks_received{$cluster} by {cluster_name}": {
+                                "alias": "webhooks received"
+                            }
+                        },
+                        "q": "avg:datadog.cluster_agent.admission_webhooks_webhooks_received{$cluster} by {cluster_name}",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "line"
+                    },
+                    {
+                        "metadata": {
+                            "avg:datadog.cluster_agent.admission_webhooks_mutation_attempts{$cluster} by {cluster_name}": {
+                                "alias": "mutations attempted"
+                            }
+                        },
+                        "q": "avg:datadog.cluster_agent.admission_webhooks_mutation_attempts{$cluster} by {cluster_name}",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "line"
+                    }
+                ],
+                "viz": "timeseries",
+                "yaxis": {
+                    "includeZero": true,
+                    "label": "",
+                    "max": "auto",
+                    "min": "auto",
+                    "scale": "linear"
+                }
+            },
+            "time": {},
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "Admission Controller Statistics",
+            "type": "timeseries",
+            "width": 47,
+            "x": -2,
+            "y": 85
+        },
+        {
+            "height": 13,
+            "legend": false,
+            "tile_def": {
+                "requests": [
+                    {
+                        "metadata": {
+                            "avg:datadog.cluster_agent.rate_limit_queries_remaining{$cluster,is_leader:true} by {cluster_name}": {
+                                "alias": "queries remaining"
+                            }
+                        },
+                        "q": "avg:datadog.cluster_agent.rate_limit_queries_remaining{$cluster,is_leader:true} by {cluster_name}",
+                        "style": {
+                            "palette": "dog_classic",
+                            "type": "solid",
+                            "width": "normal"
+                        },
+                        "type": "line"
+                    }
+                ],
+                "viz": "timeseries",
+                "yaxis": {
+                    "includeZero": true,
+                    "label": "",
+                    "max": "auto",
+                    "min": "auto",
+                    "scale": "linear"
+                }
+            },
+            "time": {},
+            "title": true,
+            "title_align": "left",
+            "title_size": 16,
+            "title_text": "Rate Limit Statistics",
+            "type": "timeseries",
+            "width": 47,
+            "x": 0,
+            "y": 62
+        }
+    ]
+}

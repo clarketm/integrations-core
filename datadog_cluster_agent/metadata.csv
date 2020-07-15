@@ -1,0 +1,36 @@
+metric_name,metric_type,interval,unit_name,per_unit_name,description,orientation,integration,short_name
+datadog.cluster_agent.admission_webhooks_certificate_expiry,gauge,,,,Time left before the certificate expires in hours.,0,datadog_cluster_agent,admission_webhooks_certificate_expiry
+datadog.cluster_agent.admission_webhooks_mutation_attempts,gauge,,,,"Number of pod mutation attempts by mutation type (agent config, standard tags).",0,datadog_cluster_agent,admission_webhooks_mutation_attempts
+datadog.cluster_agent.admission_webhooks_reconcile_success,gauge,,,,Number of reconcile success per controller.,0,datadog_cluster_agent,admission_webhooks_reconcile_success
+datadog.cluster_agent.admission_webhooks_webhooks_received,gauge,,,,Number of mutation webhook requests received.,0,datadog_cluster_agent,admission_webhooks_webhooks_received
+datadog.cluster_agent.aggregator.flush,gauge,,,,Count of flush,0,datadog_cluster_agent,aggregator.flush
+datadog.cluster_agent.aggregator.processed,gauge,,,,Amount of metrics/services_checks/events processed by the aggregator,0,datadog_cluster_agent,aggregator.processed
+datadog.cluster_agent.api_requests,gauge,,,,Counter of requests made to the cluster agent API.,0,datadog_cluster_agent,api_requests
+datadog.cluster_agent.checks.events,gauge,,,,Events count,0,datadog_cluster_agent,checks.events
+datadog.cluster_agent.checks.execution_time,gauge,,,,Check execution time,0,datadog_cluster_agent,checks.execution_time
+datadog.cluster_agent.checks.metrics_samples,gauge,,,,Metrics count,0,datadog_cluster_agent,checks.metrics_samples
+datadog.cluster_agent.checks.runs,gauge,,,,Check runs,0,datadog_cluster_agent,checks.runs
+datadog.cluster_agent.checks.services_checks,gauge,,,,Service checks count,0,datadog_cluster_agent,checks.services_checks
+datadog.cluster_agent.checks.warnings,gauge,,,,Check warnings,0,datadog_cluster_agent,checks.warnings
+datadog.cluster_agent.cluster_checks_busyness,gauge,,,,Busyness of a node per the number of metrics submitted and average duration of all checks run,0,datadog_cluster_agent,cluster_checks_busyness
+datadog.cluster_agent.cluster_checks_configs_dangling,gauge,,,,Number of check configurations not dispatched.,0,datadog_cluster_agent,cluster_checks_configs_dangling
+datadog.cluster_agent.cluster_checks_configs_dispatched,gauge,,,,"Number of check configurations dispatched, by node.",0,datadog_cluster_agent,cluster_checks_configs_dispatched
+datadog.cluster_agent.cluster_checks_nodes_reporting,gauge,,,,Number of node agents reporting.,0,datadog_cluster_agent,cluster_checks_nodes_reporting
+datadog.cluster_agent.cluster_checks_rebalancing_decisions,gauge,,,,Total number of check rebalancing decisions,0,datadog_cluster_agent,cluster_checks_rebalancing_decisions
+datadog.cluster_agent.cluster_checks_rebalancing_duration_seconds,gauge,,,,Duration of the check rebalancing algorithm last execution,0,datadog_cluster_agent,cluster_checks_rebalancing_duration_seconds
+datadog.cluster_agent.cluster_checks_successful_rebalancing_moves,gauge,,,,Total number of successful check rebalancing decisions,0,datadog_cluster_agent,cluster_checks_successful_rebalancing_moves
+datadog.cluster_agent.cluster_checks_updating_stats_duration_seconds,gauge,,,,Duration of collecting stats from check runners and updating cache,0,datadog_cluster_agent,cluster_checks_updating_stats_duration_seconds
+datadog.cluster_agent.datadog_requests,gauge,,,,Counter of requests made to Datadog,0,datadog_cluster_agent,datadog_requests
+datadog.cluster_agent.external_metrics_delay_seconds,gauge,,,,freshness of the metric evaluated from querying Datadog,0,datadog_cluster_agent,external_metrics_delay_seconds
+datadog.cluster_agent.external_metrics_processed_value,gauge,,,,value processed from querying Datadog,0,datadog_cluster_agent,external_metrics_processed_value
+datadog.cluster_agent.forwarder.connection_events,gauge,,,,Count of new connection events grouped by type of event,0,datadog_cluster_agent,forwarder.connection_events
+datadog.cluster_agent.forwarder.transactions,gauge,,,,Forwarder telemetry,0,datadog_cluster_agent,forwarder.transactions
+datadog.cluster_agent.leader_election_is_leader,gauge,,,,"The label is_leader is true if the reporting pod is leader, equals false otherwise.",0,datadog_cluster_agent,leader_election_is_leader
+datadog.cluster_agent.rate_limit_queries_limit,gauge,,,,maximum number of queries allowed in the period,0,datadog_cluster_agent,rate_limit_queries_limit
+datadog.cluster_agent.rate_limit_queries_period,gauge,,,,period of rate limiting,0,datadog_cluster_agent,rate_limit_queries_period
+datadog.cluster_agent.rate_limit_queries_remaining,gauge,,,,number of queries remaining before next reset,0,datadog_cluster_agent,rate_limit_queries_remaining
+datadog.cluster_agent.rate_limit_queries_reset,gauge,,,,number of seconds before next reset,0,datadog_cluster_agent,rate_limit_queries_reset
+datadog.cluster_agent.scheduler.checks_entered,gauge,,,,How many checks entered the scheduler,0,datadog_cluster_agent,scheduler.checks_entered
+datadog.cluster_agent.scheduler.queues_count,gauge,,,,How many queues were opened,0,datadog_cluster_agent,scheduler.queues_count
+datadog.cluster_agent.transactions.retry_queue_size,gauge,,,,Retry queue size,0,datadog_cluster_agent,transactions.retry_queue_size
+datadog.cluster_agent.transactions.success,gauge,,,,Count of successful transactions,0,datadog_cluster_agent,transactions.success
